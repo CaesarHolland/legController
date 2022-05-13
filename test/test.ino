@@ -1,6 +1,7 @@
 
 #define signal_in A0
-#define signal_out A2
+#define signal_out 3
+
 
 void setup()
 {
@@ -11,7 +12,7 @@ void setup()
 
 void loop()
 {
-    int ar = analogRead(signal_in);
+    int ar = map(analogRead(signal_in), 0, 1024, 0, 255);
     analogWrite(signal_out, ar);
     Serial.println(ar);
 }
